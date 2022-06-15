@@ -24,5 +24,16 @@ public class CameraController : MonoBehaviour
             transform.position = _player.transform.position + _delta;
             transform.LookAt(_player.transform);
         }
+
+        CameraZoom();
+    }
+
+    private void CameraZoom()
+    {
+        float scroll = Input.GetAxis("Mouse ScrollWheel") * 10.0f;
+        float dist = (_player.transform.position - transform.position).magnitude;
+        if (scroll > 0f && dist < 5f) return;
+        if (scroll < 0f && dist > 20f) return;
+        _delta -= _delta.normalized * scroll;
     }
 }
