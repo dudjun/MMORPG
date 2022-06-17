@@ -11,11 +11,13 @@ public class Managers : MonoBehaviour
     InputManager _input = new InputManager();
     ResourceManager _resource = new ResourceManager();
     UIManager _ui = new UIManager();
+    DataManager _data = new DataManager();
 
     public static GameManager Game { get { return Instance._game; } }
     public static InputManager Input { get { return Instance._input; } }
     public static ResourceManager Resource { get { return Instance._resource; } }
     public static UIManager UI { get { return Instance._ui; } }
+    public static DataManager Data { get { return Instance._data; } }
 
     public static Define.Character CharacterType = Define.Character.Unknown;
 
@@ -42,6 +44,8 @@ public class Managers : MonoBehaviour
 
             DontDestroyOnLoad(go);
             s_instance = go.GetComponent<Managers>();
+
+            s_instance._data.Init();
         }
     }
 }

@@ -1,0 +1,25 @@
+{
+  "stats": [
+    {
+      "level": "1",
+      "maxHp": "150",
+      "maxMp": "100",
+      "attack": "5",
+      "totalExp": "0"
+    },
+    {
+      "level": "2",
+      "maxHp": "180",
+      "maxMp": "150",
+      "attack": "7",
+      "totalExp": "10"
+    },
+    {
+      "level": "3",
+      "maxHp": "210",
+      "maxMp": "200",
+      "attack": "9",
+      "totalExp": "20"
+    }
+  ]
+}
