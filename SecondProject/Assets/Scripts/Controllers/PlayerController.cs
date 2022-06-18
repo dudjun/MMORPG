@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : BaseController
 {
-	int _mask = (1 << (int)Define.Layer.Ground) | (1 << (int)Define.Layer.Monster);
+	int _mask = (1 << (int)Define.Layer.Ground);
 	bool _stopSkill = false;
 
 	public override void Init()
@@ -48,17 +48,12 @@ public class PlayerController : BaseController
 						_destPos = hit.point;
 						State = Define.State.Moving;
 						_stopSkill = false;
-
-						if (hit.collider.gameObject.layer == (int)Define.Layer.Monster)
-							_lockTarget = hit.collider.gameObject;
-						else
-							_lockTarget = null;
 					}
 				}
 				break;
 			case Define.MouseEvent.Press:
 				{
-					if (_lockTarget == null && raycastHit)
+					if (raycastHit)
 						_destPos = hit.point;
 				}
 				break;
@@ -68,17 +63,37 @@ public class PlayerController : BaseController
 		}
 	}
 
+	protected override void UpdateIdle()
+    {
+		// 우클릭으로 공격
+		if (Input.GetMouseButton(1))
+		{
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast(ray, out hit, 100.0f, _mask))
+            {
+				_destPos = hit.point;
+            }
+
+			State = Define.State.Skill;
+			return;
+		}
+	}
+
 	protected override void UpdateMoving()
 	{
-		if (_lockTarget != null) 
+		// 우클릭으로 공격
+		if (Input.GetMouseButton(1))
 		{
-			_destPos = _lockTarget.transform.position;
-			float distance = (_destPos - transform.position).magnitude;
-			if (distance <= 1) 
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast(ray, out hit, 100.0f, _mask))
 			{
-				State = Define.State.Skill;
-				return;      
+				_destPos = hit.point;
 			}
+
+			State = Define.State.Skill;
+			return;
 		}
 
 		Vector3 dir = _destPos - transform.position;
@@ -106,11 +121,13 @@ public class PlayerController : BaseController
 
 	protected override void UpdateSkill()
 	{
-		if (_lockTarget != null)
-		{
-			Vector3 dir = _lockTarget.transform.position - transform.position;
-			Quaternion quat = Quaternion.LookRotation(dir);
-			transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
-		}
+		Vector3 dir = _destPos - transform.position;
+		Quaternion quat = Quaternion.LookRotation(dir);
+		transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
 	}
+
+	void OnSkillFinishEvent()
+    {
+		State = Define.State.Idle;
+    }
 }

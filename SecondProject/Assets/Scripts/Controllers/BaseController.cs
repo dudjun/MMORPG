@@ -8,7 +8,7 @@ public abstract class BaseController : MonoBehaviour
     protected Vector3 _destPos;
 
     [SerializeField]
-    protected Define.State _state = Define.State.Idle;
+    public Define.State _state = Define.State.Idle;
 
     [SerializeField]
     protected GameObject _lockTarget;
