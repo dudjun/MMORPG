@@ -21,6 +21,12 @@ public class MonsterController : BaseController
 
     protected override void UpdateIdle()
     {
+        if (_stat.isDead())
+        {
+            State = Define.State.Die;
+            return;
+        }
+
         GameObject player = Managers.Game.GetPlayer();
         if (player == null)
             return;
@@ -29,13 +35,20 @@ public class MonsterController : BaseController
         if (distance <= _scanRange)
         {
             _lockTarget = player;
-            State = Define.State.Moving;
+            if(_lockTarget.GetComponent<Stat>().Hp > 0)
+                State = Define.State.Moving;
             return;
         }
     }
 
     protected override void UpdateMoving()
     {
+        if (_stat.isDead())
+        {
+            State = Define.State.Die;
+            return;
+        }
+
         if (_lockTarget != null)
         {
             _destPos = _lockTarget.transform.position;
@@ -66,6 +79,12 @@ public class MonsterController : BaseController
 
     protected override void UpdateSkill()
     {
+        if (_stat.isDead())
+        {
+            State = Define.State.Die;
+            return;
+        }
+
         if (_lockTarget != null)
         {
             Vector3 dir = _lockTarget.transform.position - transform.position;
@@ -79,6 +98,7 @@ public class MonsterController : BaseController
         if (_lockTarget != null)
         {
             Stat targetStat = _lockTarget.GetComponent<Stat>();
+            targetStat.OnAttacked(_stat);
 
             if (targetStat.Hp > 0)
             {

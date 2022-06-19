@@ -21,11 +21,11 @@ public class ResourceManager
         return Object.Instantiate(prefab, parent);
     }
 
-    public void Destroy(GameObject go)
+    public void Destroy(GameObject go, float t)
     {
         if (go == null)
             return;
 
-        Object.Destroy(go);
+        Object.Destroy(go, t);
     }
 }

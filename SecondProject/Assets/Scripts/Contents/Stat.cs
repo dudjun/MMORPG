@@ -29,4 +29,31 @@ public class Stat : MonoBehaviour
         _attack = 10;
         _moveSpeed = 5.0f;
     }
+
+    public virtual void OnAttacked(Stat attacker)
+    {
+        Hp -= attacker.Attack;
+        if (Hp <= 0)
+        {
+            Hp = 0;
+            OnDead(attacker);
+        }
+    }
+
+    protected virtual void OnDead(Stat attacker)
+    {
+        PlayerStat playerStat = attacker as PlayerStat;
+        if (playerStat != null)
+        {
+            playerStat.Exp += 15;
+        }
+        Managers.Game.Despawn(gameObject, 2f);
+    }
+
+    public bool isDead()
+    {
+        if (Hp <= 0)
+            return true;
+        return false;
+    }
 }

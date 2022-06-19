@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerController : BaseController
 {
+	Stat _stat;
 	int _mask = (1 << (int)Define.Layer.Ground);
 	bool _stopSkill = false;
 
 	public override void Init()
 	{
 		WorldObjectType = Define.WorldObject.Player;
+		_stat = gameObject.GetComponent<Stat>();
+
 		Managers.Input.MouseAction -= OnMouseEvent;
 		Managers.Input.MouseAction += OnMouseEvent;
 	}
@@ -65,6 +68,12 @@ public class PlayerController : BaseController
 
 	protected override void UpdateIdle()
     {
+		if (_stat.isDead())
+        {
+			State = Define.State.Die;
+			return;
+        }
+
 		// 우클릭으로 공격
 		if (Input.GetMouseButton(1))
 		{
@@ -82,6 +91,12 @@ public class PlayerController : BaseController
 
 	protected override void UpdateMoving()
 	{
+		if (_stat.isDead())
+		{
+			State = Define.State.Die;
+			return;
+		}
+
 		// 우클릭으로 공격
 		if (Input.GetMouseButton(1))
 		{
@@ -121,6 +136,12 @@ public class PlayerController : BaseController
 
 	protected override void UpdateSkill()
 	{
+		if (_stat.isDead())
+		{
+			State = Define.State.Die;
+			return;
+		}
+
 		Vector3 dir = _destPos - transform.position;
 		Quaternion quat = Quaternion.LookRotation(dir);
 		transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
