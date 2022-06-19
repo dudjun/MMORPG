@@ -15,6 +15,10 @@ public class SwordController : MonoBehaviour
         {
             Stat targetStat = other.GetComponent<Stat>();
             Stat PlayerStat = Player.GetComponent<Stat>();
+            if (targetStat == null)
+            {
+                targetStat = other.GetComponentInParent<Stat>();
+            }
             targetStat.OnAttacked(PlayerStat);
         }
     }
