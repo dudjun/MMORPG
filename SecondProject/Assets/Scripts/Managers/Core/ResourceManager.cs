@@ -21,7 +21,19 @@ public class ResourceManager
         return Object.Instantiate(prefab, parent);
     }
 
-    public void Destroy(GameObject go, float t)
+    public GameObject Instantiate(string path, Vector3 pos, Quaternion rot)
+    {
+        GameObject prefab = Load<GameObject>($"Prefabs/{path}");
+        if (prefab == null)
+        {
+            Debug.Log($"Failed to load prefab : {path}");
+            return null;
+        }
+
+        return Object.Instantiate(prefab, pos, rot);
+    }
+
+    public void Destroy(GameObject go, float t = 0f)
     {
         if (go == null)
             return;

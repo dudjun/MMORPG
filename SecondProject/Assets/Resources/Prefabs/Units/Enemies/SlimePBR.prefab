@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2086429d9ac47d4dbd86d7657815747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stat: {fileID: 8721602299775264177}
+  stat: {fileID: -6887536212737137216}
 --- !u!1 &221583520
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,9 +803,9 @@ GameObject:
   - component: {fileID: 4023215848608658}
   - component: {fileID: 95161444847813696}
   - component: {fileID: 876900283171253459}
-  - component: {fileID: 8721602299775264177}
   - component: {fileID: 7383349661437105928}
   - component: {fileID: -7533999033556635470}
+  - component: {fileID: -6887536212737137216}
   m_Layer: 8
   m_Name: SlimePBR
   m_TagString: Untagged
@@ -863,23 +863,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: -0, y: 0.5, z: -0}
---- !u!114 &8721602299775264177
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1919012471076396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6985547e2f14f4da68ee753323f6cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _level: 0
-  _hp: 0
-  _maxHp: 0
-  _attack: 0
-  _moveSpeed: 0
 --- !u!114 &7383349661437105928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,6 +896,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-6887536212737137216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1919012471076396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50cbdaf510788041b4344c7217c1e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level: 0
+  _hp: 0
+  _maxHp: 0
+  _attack: 0
+  _moveSpeed: 0
 --- !u!1 &1989916952965676
 GameObject:
   m_ObjectHideFlags: 0

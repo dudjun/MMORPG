@@ -9,6 +9,7 @@ public class Define
         Unknown,
         Player,
         Monster,
+        Item
     }
 
     public enum Layer 
