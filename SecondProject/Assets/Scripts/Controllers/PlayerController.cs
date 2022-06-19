@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerController : BaseController
 {
@@ -12,7 +13,6 @@ public class PlayerController : BaseController
 	{
 		WorldObjectType = Define.WorldObject.Player;
 		_stat = gameObject.GetComponent<Stat>();
-
 		Managers.Input.MouseAction -= OnMouseEvent;
 		Managers.Input.MouseAction += OnMouseEvent;
 	}
@@ -75,7 +75,7 @@ public class PlayerController : BaseController
         }
 
 		// 우클릭으로 공격
-		if (Input.GetMouseButton(1))
+		if (Input.GetMouseButton(1) && !EventSystem.current.IsPointerOverGameObject())
 		{
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -98,7 +98,7 @@ public class PlayerController : BaseController
 		}
 
 		// 우클릭으로 공격
-		if (Input.GetMouseButton(1))
+		if (Input.GetMouseButton(1) && !EventSystem.current.IsPointerOverGameObject())
 		{
 			RaycastHit hit;
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

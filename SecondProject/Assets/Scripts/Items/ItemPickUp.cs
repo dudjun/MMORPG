@@ -6,21 +6,36 @@ public class ItemPickUp : MonoBehaviour
 {
     public Item item;
     private GameObject player;
+    private Inventory inventory;
 
     private void Start()
     {
-        Managers.Input.KeyAction -= CheckZButton;
-        Managers.Input.KeyAction += CheckZButton;
-        player = Managers.Game.GetPlayer();
+        if (item.itemType != Item.ItemType.Weapon)
+        {
+            inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
+            Managers.Input.KeyAction -= CheckZButton;
+            Managers.Input.KeyAction += CheckZButton;
+            player = Managers.Game.GetPlayer();
+        }
     }
 
     void CheckZButton()
     {
-        float dis = (player.transform.position - gameObject.transform.position).magnitude;
-        if (Input.GetKeyDown(KeyCode.Z) && dis <= 1f)
+        if (Input.GetKeyDown(KeyCode.Z))
         {
-            Managers.Input.KeyAction -= CheckZButton;
-            Managers.Resource.Destroy(gameObject);
+            float dis = (player.transform.position - gameObject.transform.position).magnitude;
+            if (dis <= 1f && item.itemType != Item.ItemType.Weapon)
+            {
+                if (item.itemType == Item.ItemType.Coin)
+                {
+
+                }
+                else
+                    inventory.PutSlot(item, 1);
+                Managers.Input.KeyAction -= CheckZButton;
+                Managers.Resource.Destroy(gameObject);
+            }
+            
         }
     }
 }
