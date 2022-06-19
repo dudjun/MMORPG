@@ -93,7 +93,7 @@ public class MonsterController : BaseController
         }
     }
 
-    void OnHitEvent()
+    public void OnHitEvent()
     {
         if (_lockTarget != null)
         {
@@ -104,7 +104,9 @@ public class MonsterController : BaseController
             {
                 float distance = (_lockTarget.transform.position - transform.position).magnitude;
                 if (distance <= _attackRange)
-                    State = Define.State.Skill;
+                {
+
+                }
                 else
                     State = Define.State.Moving;
             }

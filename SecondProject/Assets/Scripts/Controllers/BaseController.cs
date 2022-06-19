@@ -23,6 +23,8 @@ public abstract class BaseController : MonoBehaviour
 			_state = value;
 
 			Animator anim = GetComponent<Animator>();
+			if (anim == null)
+				anim = GetComponentInChildren<Animator>();
 			switch (_state)
 			{
 				case Define.State.Die:
