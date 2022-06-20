@@ -48,7 +48,7 @@ public class PlayerController : BaseController
 				{
 					if (raycastHit)
 					{
-						_destPos = hit.point;
+						destPos = hit.point;
 						State = Define.State.Moving;
 						_stopSkill = false;
 					}
@@ -57,7 +57,7 @@ public class PlayerController : BaseController
 			case Define.MouseEvent.Press:
 				{
 					if (raycastHit)
-						_destPos = hit.point;
+						destPos = hit.point;
 				}
 				break;
 			case Define.MouseEvent.PointerUp:
@@ -81,7 +81,7 @@ public class PlayerController : BaseController
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, 100.0f, _mask))
             {
-				_destPos = hit.point;
+				destPos = hit.point;
             }
 
 			State = Define.State.Skill;
@@ -104,14 +104,14 @@ public class PlayerController : BaseController
 			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(ray, out hit, 100.0f, _mask))
 			{
-				_destPos = hit.point;
+				destPos = hit.point;
 			}
 
 			State = Define.State.Skill;
 			return;
 		}
 
-		Vector3 dir = _destPos - transform.position;
+		Vector3 dir = destPos - transform.position;
 		dir.y = 0;         
 		if (dir.magnitude < 0.1f)
 		{
@@ -142,7 +142,7 @@ public class PlayerController : BaseController
 			return;
 		}
 
-		Vector3 dir = _destPos - transform.position;
+		Vector3 dir = destPos - transform.position;
 		Quaternion quat = Quaternion.LookRotation(dir);
 		transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
 	}

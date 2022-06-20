@@ -21,6 +21,8 @@ public class Stat : MonoBehaviour
     public int Attack { get { return _attack; } set { _attack = value; } }
     public float MoveSpeed { get { return _moveSpeed; } set { _moveSpeed = value; } }
 
+    protected bool isFireDead;
+
     private void Start()
     {
         _level = 1;
@@ -36,6 +38,17 @@ public class Stat : MonoBehaviour
         if (Hp <= 0)
         {
             Hp = 0;
+            OnDead(attacker);
+        }
+    }
+
+    public void OnFired(int attack, Stat attacker)
+    {
+        Hp -= attack;
+        if (Hp <= 0)
+        {
+            Hp = 0;
+            isFireDead = true;
             OnDead(attacker);
         }
     }

@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 663647273243033145}
   m_Layer: 8
   m_Name: pig
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: -7468388818186902310}
   m_Layer: 0
   m_Name: Pig
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ee7c02817b57784ba1841cc8e19ceb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destPos: {x: 0, y: 0, z: 0}
+  destPos: {x: 0, y: 0, z: 0}
   _state: 2
   _lockTarget: {fileID: 0}
   _scanRange: 10
@@ -710,7 +710,6 @@ MonoBehaviour:
   _maxHp: 0
   _attack: 0
   _moveSpeed: 0
-  ItemPref: {fileID: 0}
 --- !u!1 &1769135705159763976
 GameObject:
   m_ObjectHideFlags: 0

@@ -53,5 +53,6 @@ public class Define
         Moving,
         Idle,
         Skill,
+        ICE,
     }
 }

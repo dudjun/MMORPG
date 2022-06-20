@@ -51,8 +51,8 @@ public class MonsterController : BaseController
 
         if (_lockTarget != null)
         {
-            _destPos = _lockTarget.transform.position;
-            float distance = (_destPos - transform.position).magnitude;
+            destPos = _lockTarget.transform.position;
+            float distance = (destPos - transform.position).magnitude;
             if (distance <= _attackRange)
             {
                 NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
@@ -62,7 +62,7 @@ public class MonsterController : BaseController
             }
         }
 
-        Vector3 dir = _destPos - transform.position;
+        Vector3 dir = destPos - transform.position;
         if (dir.magnitude < 0.1f)
         {
             State = Define.State.Idle;
@@ -70,7 +70,7 @@ public class MonsterController : BaseController
         else
         {
             NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
-            nma.SetDestination(_destPos);
+            nma.SetDestination(destPos);
             nma.speed = _stat.MoveSpeed;
 
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);

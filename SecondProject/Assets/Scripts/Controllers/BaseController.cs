@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class BaseController : MonoBehaviour
 {
     [SerializeField]
-    protected Vector3 _destPos;
+    public Vector3 destPos;
 
     [SerializeField]
     public Define.State _state = Define.State.Idle;
@@ -39,6 +39,9 @@ public abstract class BaseController : MonoBehaviour
 				case Define.State.Skill:
 					anim.CrossFade("ATTACK", 0.1f, -1, 0f);
 					break;
+				case Define.State.ICE:
+					anim.CrossFade("ICE", 0f);
+					break;
 			}
 		}
 	}
@@ -64,6 +67,9 @@ public abstract class BaseController : MonoBehaviour
 			case Define.State.Skill:
 				UpdateSkill();
 				break;
+			case Define.State.ICE:
+				UpdateIce();
+				break;
 		}
 	}
 
@@ -72,4 +78,5 @@ public abstract class BaseController : MonoBehaviour
 	protected virtual void UpdateMoving() { }
 	protected virtual void UpdateIdle() { }
 	protected virtual void UpdateSkill() { }
+	protected virtual void UpdateIce() { }
 }

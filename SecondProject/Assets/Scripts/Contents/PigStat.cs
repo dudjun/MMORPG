@@ -14,6 +14,9 @@ public class PigStat : Stat
     IEnumerator SpawnItem()
     {
         yield return new WaitForSeconds(1.8f);
-        Managers.Resource.Instantiate("ItemPrefabs/Meat_Raw", transform.position, transform.rotation);
+        if (isFireDead)
+            Managers.Resource.Instantiate("ItemPrefabs/Meat Cooked", transform.position, transform.rotation);
+        else
+            Managers.Resource.Instantiate("ItemPrefabs/Meat_Raw", transform.position, transform.rotation);
     }
 }
