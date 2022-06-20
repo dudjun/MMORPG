@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviour
 
     public static bool inventoryActivated = false;
 
-    private Slot[] slots;
+    public Slot[] slots;
 
     void Start()
     {

@@ -12,6 +12,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
     public Text txtCount;
     public bool isQuickSlot;
 
+    Slot[] _slots;
+
+    private float clickTime = 0;
+
     [SerializeField]
     private RectTransform baseRect;
     [SerializeField]
@@ -51,9 +55,10 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
         if (txtCount != null) txtCount.text = "";
     }
 
-    // 인벤토리에서 우클릭으로 아이템 사용
+    
     public void OnPointerClick(PointerEventData eventData)
     {
+        // 인벤토리에서 우클릭으로 아이템 사용
         if (eventData.button == PointerEventData.InputButton.Right)
         {
             if (item != null)
@@ -66,6 +71,30 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
                 }
             }
         }
+
+        // 더블 클릭 시
+        if ((Time.time - clickTime) < 0.3f)
+        {
+            CheckDoubleClick();
+            clickTime = -1;
+        }
+        else
+        {
+            clickTime = Time.time;
+        }
+    }
+
+    void CheckDoubleClick()
+    {
+        _slots = baseRect.transform.GetComponentInParent<Inventory>().slots;
+        foreach(Slot slot in _slots){
+            if(slot.item == null)
+            {
+                slot.AddItem(item);
+                break;
+            }
+        }
+        ClearSlot();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
