@@ -18,4 +18,9 @@ public class SlimeStat : Stat
         else
             Managers.Resource.Instantiate("ItemPrefabs/SilverCoin", transform.position, transform.rotation);
     }
+
+    void OnSound()
+    {
+        transform.GetComponent<AudioSource>().Play();
+    }
 }
