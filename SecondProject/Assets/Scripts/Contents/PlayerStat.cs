@@ -10,6 +10,8 @@ public class PlayerStat : Stat
     protected int _mp;
     [SerializeField]
     protected int _maxMp;
+    [SerializeField]
+    int _gold;
 
     public int Mp { get { return _mp; } set { _mp = value; } }
     public int MaxMp { get { return _maxMp; } set { _maxMp = value; } }
@@ -42,11 +44,14 @@ public class PlayerStat : Stat
         }
     }
 
+    public int Gold { get { return _gold; } set { _gold = value; } }
+
     private void Start()
     {
         _level = 1;
         _exp = 0;
         _moveSpeed = 5.0f;
+        _gold = 0;
 
         SetStat(_level);
 

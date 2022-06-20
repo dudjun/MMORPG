@@ -9,6 +9,7 @@ public class StateBox : MonoBehaviour
     [SerializeField] private Slider HpSlider;
     [SerializeField] private Slider MpSlider;
     [SerializeField] private Text LvText;
+    [SerializeField] private Text MoneyText;
     void Start()
     {
         stat = Managers.Game.GetPlayer().GetComponent<PlayerStat>();
@@ -19,5 +20,6 @@ public class StateBox : MonoBehaviour
         HpSlider.value = stat.Hp / (float)stat.MaxHp;
         MpSlider.value = stat.Mp / (float)stat.MaxMp;
         LvText.text = "LV. " + stat.Level;
+        MoneyText.text = stat.Gold + "원";
     }
 }

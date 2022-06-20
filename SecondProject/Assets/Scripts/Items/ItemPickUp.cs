@@ -28,7 +28,16 @@ public class ItemPickUp : MonoBehaviour
             {
                 if (item.itemType == Item.ItemType.Coin)
                 {
-
+                    int PlusMoney = 0;
+                    if (item.itemName == "금화")
+                    {
+                        PlusMoney = Random.Range(10, 20);
+                    }
+                    else if (item.itemName == "은화")
+                    {
+                        PlusMoney = Random.Range(5, 10);
+                    }
+                    Managers.Game.GetPlayer().GetComponent<PlayerStat>().Gold += PlusMoney;
                 }
                 else
                     inventory.PutSlot(item, 1);
