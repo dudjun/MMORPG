@@ -51,7 +51,7 @@ public class PlayerStat : Stat
         _level = 1;
         _exp = 0;
         _moveSpeed = 5.0f;
-        _gold = 0;
+        _gold = 100;
 
         SetStat(_level);
 

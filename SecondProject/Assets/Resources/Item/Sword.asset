@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Sword
   m_EditorClassIdentifier: 
   itemName: "\uAC80"
-  itemDesc: 
+  itemDesc: "\uADF8\uB0E5 \uAC80"
   itemType: 0
   itemImage: {fileID: 21300000, guid: 5fd50594014b70e48bd6993443d46b32, type: 3}
   itemPrefab: {fileID: 1721373551799999858, guid: 1e0f44f3d37ded149b79d722da5fc097,
     type: 3}
+  Gold: 5
