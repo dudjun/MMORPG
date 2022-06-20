@@ -5,13 +5,13 @@ using UnityEngine.AI;
 
 public class MonsterController : BaseController
 {
-    Stat _stat;
+    protected Stat _stat;
 
     [SerializeField]
     float _scanRange = 10;
 
     [SerializeField]
-    float _attackRange = 2;
+    protected float _attackRange = 2;
     public override void Init()
     {
         WorldObjectType = Define.WorldObject.Monster;
