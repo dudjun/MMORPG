@@ -16,7 +16,6 @@ public class MonsterController : BaseController
     {
         WorldObjectType = Define.WorldObject.Monster;
         _stat = gameObject.GetComponent<Stat>();
-
     }
 
     protected override void UpdateIdle()

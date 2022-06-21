@@ -25,6 +25,10 @@ public class GameScene : BaseScene
         }
         Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(player);
 
+        GameObject go = new GameObject { name = "SpawningPool" };
+        SpawningPool pool = go.GetOrAddComponent<SpawningPool>();
+        pool.SetKeepMonsterCount(20);
+
     }
 
     public override void Clear()
