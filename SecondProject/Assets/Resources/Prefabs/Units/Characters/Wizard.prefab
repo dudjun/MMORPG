@@ -6493,9 +6493,10 @@ GameObject:
   - component: {fileID: -6058329024822768919}
   - component: {fileID: -1103738241530992347}
   - component: {fileID: 2658197279955937961}
+  - component: {fileID: 7520558848089945157}
   m_Layer: 0
   m_Name: Wizard
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6570,6 +6571,8 @@ MonoBehaviour:
   _exp: 0
   _mp: 0
   _maxMp: 0
+  _gold: 0
+  _slimeKill: 0
 --- !u!54 &-1103738241530992347
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6604,6 +6607,14 @@ MonoBehaviour:
   IceWeapon: {fileID: 11400000, guid: 837bc07de4af6954c97923f480e54859, type: 2}
   FireWeapon: {fileID: 11400000, guid: dc2fe42ff92eb724da7f9db2ee41f417, type: 2}
   IceParticle: {fileID: 1926349874}
+--- !u!81 &7520558848089945157
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021847750149327708}
+  m_Enabled: 1
 --- !u!1 &1021849504317843882
 GameObject:
   m_ObjectHideFlags: 0

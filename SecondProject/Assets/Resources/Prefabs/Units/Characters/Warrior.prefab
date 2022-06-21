@@ -327,9 +327,10 @@ GameObject:
   - component: {fileID: 1643298031560459245}
   - component: {fileID: 4523430475544569051}
   - component: {fileID: -357401273569990428}
+  - component: {fileID: 1113001744729819049}
   m_Layer: 0
   m_Name: Warrior
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -388,6 +389,8 @@ MonoBehaviour:
   _exp: 0
   _mp: 0
   _maxMp: 0
+  _gold: 0
+  _slimeKill: 0
 --- !u!54 &1643298031560459245
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -430,10 +433,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a5972fdc27da8479949159add8ba34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destPos: {x: 0, y: 0, z: 0}
+  destPos: {x: 0, y: 0, z: 0}
   _state: 2
   _lockTarget: {fileID: 0}
   item: {fileID: 11400000, guid: 0a9fa95931f2acf4d95ab6315c305a04, type: 2}
+--- !u!81 &1113001744729819049
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2083787712595150364}
+  m_Enabled: 1
 --- !u!1 &2084071017396354696
 GameObject:
   m_ObjectHideFlags: 0
