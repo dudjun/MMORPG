@@ -34,7 +34,7 @@ public class QuickSlot : MonoBehaviour
                 Unselected[1].SetActive(true);
                 if(quickSlots[0].item != null)
                 {
-                    if(tf_WeaponPos.childCount == 0)
+                    if(tf_WeaponPos != null && tf_WeaponPos.childCount == 0)
                     {
                         go_HandWeapon = Instantiate(quickSlots[0].item.itemPrefab, tf_WeaponPos);
                     }

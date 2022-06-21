@@ -8,6 +8,9 @@ public class NPCController : MonoBehaviour
     private RaycastHit hit;
     private Ray ray;
     private int NpsMask = (1 << 11);
+    private PlayerStat stat;
+    private bool isCheckQuest;
+    private bool isCheckSuccess;
 
     private float m_DoubleClickSecond = 0.25f;
     private bool m_isOneClick = false;
@@ -15,6 +18,17 @@ public class NPCController : MonoBehaviour
 
     [SerializeField]
     private GameObject Storebase;
+    [SerializeField]
+    private GameObject Quest;
+    [SerializeField]
+    private GameObject QuestSuccess;
+    [SerializeField]
+    private GameObject QuestState;
+
+    private void Start()
+    {
+        stat = Managers.Game.GetPlayer().GetComponent<PlayerStat>();
+    }
 
     void Update()
     {
@@ -36,7 +50,20 @@ public class NPCController : MonoBehaviour
                 }
                 else if (m_isOneClick && ((Time.time - m_Timer) < m_DoubleClickSecond))
                 {
-                    Storebase.SetActive(true);
+                    // 더블클릭 한 부분
+                    if (QuestState.GetComponent<Quest>().GetQuestFinish() && !isCheckSuccess)
+                    {
+                        QuestSuccess.SetActive(true);
+                        QuestState.SetActive(false);
+                        isCheckSuccess = true;
+                    }
+                    else if (stat.Level >= 2 && !isCheckQuest)
+                    {
+                        Quest.SetActive(true);
+                        isCheckQuest = true;
+                    }
+                    else
+                        Storebase.SetActive(true);
                     m_isOneClick = false;
                 }
             }

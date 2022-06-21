@@ -8,6 +8,7 @@ public class SlimeStat : Stat
     {
         StartCoroutine(SpawnItem());
         base.OnDead(attacker);
+        Managers.Game.GetPlayer().GetComponent<PlayerStat>().SlimeKill++;
     }
     IEnumerator SpawnItem()
     {

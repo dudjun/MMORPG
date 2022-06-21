@@ -12,6 +12,8 @@ public class PlayerStat : Stat
     protected int _maxMp;
     [SerializeField]
     int _gold;
+    [SerializeField]
+    int _slimeKill;
 
     public int Mp { get { return _mp; } set { _mp = value; } }
     public int MaxMp { get { return _maxMp; } set { _maxMp = value; } }
@@ -45,6 +47,7 @@ public class PlayerStat : Stat
     }
 
     public int Gold { get { return _gold; } set { _gold = value; } }
+    public int SlimeKill { get { return _slimeKill; } set { _slimeKill = value; } }
 
     private void Start()
     {
@@ -52,6 +55,7 @@ public class PlayerStat : Stat
         _exp = 0;
         _moveSpeed = 5.0f;
         _gold = 100;
+        _slimeKill = 0;
 
         SetStat(_level);
 
