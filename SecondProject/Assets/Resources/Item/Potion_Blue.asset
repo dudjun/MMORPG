@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f1578f76badf44fa7e322835a2dcb6, type: 3}
+  m_Name: Potion_Blue
+  m_EditorClassIdentifier: 
+  itemName: "\uD30C\uB780 \uBB3C\uC57D"
+  itemDesc: "\uB9C8\uB098 + 50"
+  itemType: 1
+  itemImage: {fileID: 21300000, guid: 54f395a7c3e508d46ab3f9481df6827c, type: 3}
+  itemPrefab: {fileID: 5143475217328137339, guid: 2c5dab11739fe604ba1aefa9f7d8471c,
+    type: 3}
+  Gold: 5

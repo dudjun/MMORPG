@@ -5881,7 +5881,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   document: {fileID: 1737128438475979}
   Item_img: {fileID: 1770391189}
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: af1c243e15c7fa54dae38ce52e60dc10, type: 2}
   itemName: {fileID: 1091860782}
   itemDesc: {fileID: 2059885626}
   itemCoin: {fileID: 1034752752}
@@ -29989,7 +29989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   document: {fileID: 1737128438475979}
   Item_img: {fileID: 1239521691}
-  item: {fileID: 0}
+  item: {fileID: 11400000, guid: 407328935226df34c84c464af8605dc1, type: 2}
   itemName: {fileID: 1091860782}
   itemDesc: {fileID: 2059885626}
   itemCoin: {fileID: 1034752752}

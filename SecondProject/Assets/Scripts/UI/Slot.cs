@@ -67,6 +67,22 @@ public class Slot : MonoBehaviour, IPointerClickHandler, IBeginDragHandler, IDra
 
                 if (item.itemType == Item.ItemType.Used)
                 {
+                    if (item.itemName == "빨간 물약")
+                    {
+                        Managers.Game.GetPlayer().GetComponent<PlayerStat>().Hp += 50;
+                        if (Managers.Game.GetPlayer().GetComponent<PlayerStat>().Hp >
+                            Managers.Game.GetPlayer().GetComponent<PlayerStat>().MaxHp)
+                            Managers.Game.GetPlayer().GetComponent<PlayerStat>().Hp =
+                                Managers.Game.GetPlayer().GetComponent<PlayerStat>().MaxHp;
+                    }
+                    if (item.itemName == "파란 물약")
+                    {
+                        Managers.Game.GetPlayer().GetComponent<PlayerStat>().Mp += 50;
+                        if (Managers.Game.GetPlayer().GetComponent<PlayerStat>().Mp >
+                            Managers.Game.GetPlayer().GetComponent<PlayerStat>().MaxMp)
+                            Managers.Game.GetPlayer().GetComponent<PlayerStat>().Mp =
+                                Managers.Game.GetPlayer().GetComponent<PlayerStat>().MaxMp;
+                    }
                     SetSlotCount(-1);
                 }
             }
