@@ -60,7 +60,12 @@ public class Stat : MonoBehaviour
         {
             playerStat.Exp += 15;
         }
-        Managers.Game.Despawn(gameObject, 2f);
+
+        if (gameObject.tag == "Enemy") Managers.Game.Despawn(gameObject, 2f);
+        else if (gameObject.tag == "Player")
+        {
+            GameObject.Find("Die_UI").transform.Find("Die_Panel").gameObject.SetActive(true);
+        }
     }
 
     public bool isDead()

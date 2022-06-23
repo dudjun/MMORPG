@@ -147,7 +147,7 @@ public class PlayerController : BaseController
 		transform.rotation = Quaternion.Lerp(transform.rotation, quat, 20 * Time.deltaTime);
 	}
 
-	void OnSkillFinishEvent()
+    void OnSkillFinishEvent()
     {
 		State = Define.State.Idle;
     }
