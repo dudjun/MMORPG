@@ -10,6 +10,8 @@ public class MonsterController : BaseController
     [SerializeField]
     float _scanRange = 10;
 
+    protected float _MaxDistance = 30f;
+
     [SerializeField]
     protected float _attackRange = 2;
     public override void Init()
@@ -62,9 +64,11 @@ public class MonsterController : BaseController
         }
 
         Vector3 dir = destPos - transform.position;
-        if (dir.magnitude < 0.1f)
+        if (dir.magnitude < 0.1f || dir.magnitude > _MaxDistance)
         {
             State = Define.State.Idle;
+            NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
+            nma.SetDestination(transform.position);
         }
         else
         {

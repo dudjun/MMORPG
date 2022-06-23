@@ -30,9 +30,11 @@ public class SlimeController : MonsterController
         }
 
         Vector3 dir = destPos - transform.position;
-        if (dir.magnitude < 0.1f)
+        if (dir.magnitude < 0.1f || dir.magnitude > _MaxDistance)
         {
             State = Define.State.Idle;
+            NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
+            nma.SetDestination(transform.position);
         }
         else
         {
