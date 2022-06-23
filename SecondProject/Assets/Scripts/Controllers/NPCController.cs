@@ -9,8 +9,8 @@ public class NPCController : MonoBehaviour
     private Ray ray;
     private int NpsMask = (1 << 11);
     private PlayerStat stat;
-    private bool isCheckQuest;
-    private bool isCheckSuccess;
+    public bool isCheckQuest;
+    public bool isCheckSuccess;
 
     private float m_DoubleClickSecond = 0.25f;
     private bool m_isOneClick = false;

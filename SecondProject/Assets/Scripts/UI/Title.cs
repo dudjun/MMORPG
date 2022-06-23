@@ -6,6 +6,22 @@ using UnityEngine.SceneManagement;
 public class Title : MonoBehaviour
 {
     public string sceneName = "Game";
+
+    public static Title instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(this.gameObject);
+    }
+
+    [SerializeField]
+    private SaveNLoad saveNLoad;
     
     public void ClickStart()
     {
@@ -14,7 +30,30 @@ public class Title : MonoBehaviour
 
     public void ClickLoad()
     {
-        Debug.Log("로드");
+        if (saveNLoad.isExist())
+        {
+            Debug.Log("로드");
+            saveNLoad.LoadCharacterType();
+            StartCoroutine(LoadCoroutine());
+        }
+        else
+        {
+            Debug.Log("세이브 파일이 없습니다");
+        }
+    }
+
+    IEnumerator LoadCoroutine()
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
+
+        while (!operation.isDone)
+        {
+            // operation.process를 이용해서 로딩화면 만들 예정
+            yield return null;
+        }
+        saveNLoad = FindObjectOfType<SaveNLoad>();
+        saveNLoad.LoadAllData();
+        gameObject.SetActive(false);
     }
 
     public void ClickExit()
@@ -29,11 +68,13 @@ public class Title : MonoBehaviour
         {
             Managers.CharacterType = Define.Character.Warrior;
             SceneManager.LoadScene(sceneName);
+            gameObject.SetActive(false);
         }
         else if (i == 1)
         {
             Managers.CharacterType = Define.Character.Wizard;
             SceneManager.LoadScene(sceneName);
+            gameObject.SetActive(false);
         }
         else
             return;

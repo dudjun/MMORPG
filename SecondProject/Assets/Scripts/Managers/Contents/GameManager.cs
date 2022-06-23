@@ -6,11 +6,12 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     GameObject _player;
-    HashSet<GameObject> _monsters = new HashSet<GameObject>();
+    List<GameObject> _monsters = new List<GameObject>();
 
     public Action<int> OnSpawnEvent;
 
     public GameObject GetPlayer() { return _player; }
+    public List<GameObject> GetMonsters() { return _monsters; }
 
     public GameObject Spawn(Define.WorldObject type, string path, Transform parent = null)
     {

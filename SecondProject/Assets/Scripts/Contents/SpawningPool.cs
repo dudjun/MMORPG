@@ -27,9 +27,9 @@ public class SpawningPool : MonoBehaviour
         Managers.Game.OnSpawnEvent += AddMonsterCount;
     }
 
-    void Update()
+    void LateUpdate()
     {
-        while (_reserveCount +_monsterCount < _keepMonsterCount)
+        while (_reserveCount + Managers.Game.GetMonsters().Count < _keepMonsterCount)
         {
             StartCoroutine(ReserveSpawn());
         }
