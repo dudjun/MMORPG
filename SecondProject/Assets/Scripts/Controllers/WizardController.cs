@@ -45,7 +45,8 @@ public class WizardController : PlayerController
 
 	void ActiveIceCollider()
     {
-		IceParticle.transform.GetComponent<CapsuleCollider>().enabled = true;
+		if (QuickSlot.go_HandWeapon.GetComponent<ItemPickUp>().item == IceWeapon)
+			IceParticle.transform.GetComponent<CapsuleCollider>().enabled = true;
     }
 
 	void InActiveIceCollider()

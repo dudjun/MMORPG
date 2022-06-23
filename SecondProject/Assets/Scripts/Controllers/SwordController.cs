@@ -11,7 +11,7 @@ public class SwordController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (Player.GetComponent<PlayerController>().State == Define.State.Skill)
+        if (Player.GetComponent<PlayerController>().State == Define.State.Skill && other.tag == "Enemy")
         {
             Stat targetStat = other.GetComponent<Stat>();
             Stat PlayerStat = Player.GetComponent<Stat>();
