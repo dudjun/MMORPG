@@ -92,6 +92,12 @@ public class MonsterController : BaseController
         }
     }
 
+    protected override void UpdateIce()
+    {
+        NavMeshAgent nma = gameObject.GetOrAddComponent<NavMeshAgent>();
+        nma.SetDestination(transform.position);
+    }
+
     public void OnHitEvent()
     {
         if (_lockTarget != null)
@@ -114,5 +120,10 @@ public class MonsterController : BaseController
                 State = Define.State.Idle;
             }
         }
+    }
+
+    public void OnIdleState()
+    {
+        State = Define.State.Idle;
     }
 }

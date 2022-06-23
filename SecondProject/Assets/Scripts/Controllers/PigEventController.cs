@@ -13,4 +13,9 @@ public class PigEventController : MonoBehaviour
     {
         mc.OnHitEvent();
     }
+
+    void OnIdleState()
+    {
+        mc.OnIdleState();
+    }
 }
