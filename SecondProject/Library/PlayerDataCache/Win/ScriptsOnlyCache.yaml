@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraController
+    - DieUI
     - DragSlot
     - FireballController
     - GameScene
@@ -39,8 +40,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -124,39 +127,41 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11438}
     - Class: 114
-      Script: {instanceID: 11540}
+      Script: {instanceID: 11490}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 11542}
     - Class: 114
-      Script: {instanceID: 11608}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 11796}
+      Script: {instanceID: 11610}
     - Class: 114
-      Script: {instanceID: 11852}
+      Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 11932}
+      Script: {instanceID: 11854}
     - Class: 114
-      Script: {instanceID: 12070}
+      Script: {instanceID: 11934}
     - Class: 114
-      Script: {instanceID: 12234}
+      Script: {instanceID: 12072}
     - Class: 114
-      Script: {instanceID: 12392}
+      Script: {instanceID: 12236}
     - Class: 114
-      Script: {instanceID: 12532}
+      Script: {instanceID: 12394}
     - Class: 114
-      Script: {instanceID: 12600}
+      Script: {instanceID: 12534}
     - Class: 114
-      Script: {instanceID: 12722}
+      Script: {instanceID: 12602}
     - Class: 114
-      Script: {instanceID: 12766}
+      Script: {instanceID: 12724}
     - Class: 114
-      Script: {instanceID: 12922}
+      Script: {instanceID: 12768}
     - Class: 114
-      Script: {instanceID: 13094}
+      Script: {instanceID: 12924}
     - Class: 114
-      Script: {instanceID: 13118}
+      Script: {instanceID: 13096}
     - Class: 114
-      Script: {instanceID: 13160}
+      Script: {instanceID: 13120}
+    - Class: 114
+      Script: {instanceID: 13162}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -259,45 +264,45 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11426}
     - Class: 114
-      Script: {instanceID: 11586}
+      Script: {instanceID: 11588}
     - Class: 114
-      Script: {instanceID: 11660}
+      Script: {instanceID: 11662}
     - Class: 114
-      Script: {instanceID: 11700}
+      Script: {instanceID: 11702}
     - Class: 114
-      Script: {instanceID: 11796}
+      Script: {instanceID: 11798}
     - Class: 114
-      Script: {instanceID: 12070}
+      Script: {instanceID: 12072}
     - Class: 114
-      Script: {instanceID: 12090}
+      Script: {instanceID: 12092}
     - Class: 114
-      Script: {instanceID: 12142}
+      Script: {instanceID: 12144}
     - Class: 114
-      Script: {instanceID: 12282}
+      Script: {instanceID: 12284}
     - Class: 114
-      Script: {instanceID: 12294}
+      Script: {instanceID: 12296}
     - Class: 114
-      Script: {instanceID: 12392}
+      Script: {instanceID: 12394}
     - Class: 114
-      Script: {instanceID: 12542}
+      Script: {instanceID: 12544}
     - Class: 114
-      Script: {instanceID: 12600}
+      Script: {instanceID: 12602}
     - Class: 114
-      Script: {instanceID: 12722}
+      Script: {instanceID: 12724}
     - Class: 114
-      Script: {instanceID: 13064}
+      Script: {instanceID: 13066}
     - Class: 114
-      Script: {instanceID: 13084}
+      Script: {instanceID: 13086}
     - Class: 114
-      Script: {instanceID: 13094}
+      Script: {instanceID: 13096}
     - Class: 114
-      Script: {instanceID: 13118}
+      Script: {instanceID: 13120}
     - Class: 114
-      Script: {instanceID: 13124}
+      Script: {instanceID: 13126}
     - Class: 114
-      Script: {instanceID: 13134}
+      Script: {instanceID: 13136}
     - Class: 114
-      Script: {instanceID: 13140}
+      Script: {instanceID: 13142}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -503,6 +508,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DieUI
   - hash:
       serializedVersion: 2
       Hash: 892cb560d3161d81a96b3677adbef996
@@ -993,4 +1004,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/Title.unity
   - Assets/Scenes/Game.unity
-  playerPath: "C:/Users/\uC870\uC778\uD601/Desktop/SecondProject.exe"
+  playerPath: "C:/Users/\uC870\uC778\uD601/Desktop/\uACFC\uC81C2/SecondProject.exe"
