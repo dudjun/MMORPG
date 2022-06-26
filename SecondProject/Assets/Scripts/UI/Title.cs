@@ -7,6 +7,9 @@ public class Title : MonoBehaviour
 {
     public string sceneName = "Game";
 
+    [SerializeField]
+    private GameObject BlackFade;
+
     public static Title instance;
 
     private void Awake()
@@ -44,6 +47,9 @@ public class Title : MonoBehaviour
 
     IEnumerator LoadCoroutine()
     {
+        BlackFade.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName);
 
         while (!operation.isDone)
@@ -53,6 +59,7 @@ public class Title : MonoBehaviour
         }
         saveNLoad = FindObjectOfType<SaveNLoad>();
         saveNLoad.LoadAllData();
+        BlackFade.SetActive(false);
         gameObject.SetActive(false);
     }
 
@@ -67,16 +74,24 @@ public class Title : MonoBehaviour
         if (i == 0)
         {
             Managers.CharacterType = Define.Character.Warrior;
-            SceneManager.LoadScene(sceneName);
-            gameObject.SetActive(false);
+            StartCoroutine(FadeAndLoadScene());
         }
         else if (i == 1)
         {
             Managers.CharacterType = Define.Character.Wizard;
-            SceneManager.LoadScene(sceneName);
-            gameObject.SetActive(false);
+            StartCoroutine(FadeAndLoadScene());
         }
         else
             return;
     }
+
+    IEnumerator FadeAndLoadScene()
+    {
+        BlackFade.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        BlackFade.SetActive(false);
+        SceneManager.LoadScene(sceneName);
+        gameObject.SetActive(false);
+    }
+
 }
