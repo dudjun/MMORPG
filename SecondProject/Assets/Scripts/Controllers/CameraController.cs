@@ -5,10 +5,21 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     Vector3 _delta = new Vector3(0.0f, 10.0f, -10.0f);
+    List<GameObject> TransparentBuildings = new List<GameObject>();
+
+    Material TransparentMat;
+    Material DefaltMat;
 
     GameObject _player = null;
 
     public void SetPlayer(GameObject player) { _player = player; }
+
+    void Start()
+    {
+        TransparentMat = (Material)Resources.Load("Town/Materials/Building_Texture_Transparent");
+        DefaltMat = (Material)Resources.Load("Town/Materials/Building_Texture");
+    }
+
     void LateUpdate()
     {
         if (_player.IsValid() == false)
@@ -16,14 +27,19 @@ public class CameraController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, 1 << (int)Define.Layer.Block))
         {
-            float dist = (hit.point - _player.transform.position).magnitude * 0.8f;
-            transform.position = _player.transform.position + _delta.normalized * dist;
+            hit.collider.GetComponent<MeshRenderer>().material = TransparentMat;
+            TransparentBuildings.Add(hit.collider.gameObject);
         }
         else
         {
-            transform.position = _player.transform.position + _delta;
-            transform.LookAt(_player.transform);
+            foreach(GameObject Building in TransparentBuildings)
+            {
+                Building.GetComponent<MeshRenderer>().material = DefaltMat;
+            }
         }
+
+        transform.position = _player.transform.position + _delta;
+        transform.LookAt(_player.transform);
 
         CameraZoom();
     }
