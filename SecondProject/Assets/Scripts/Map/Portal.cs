@@ -15,6 +15,7 @@ public class Portal : MonoBehaviour
         {
             _otherPortal.GetComponent<Portal>().isFirstPortal = false;
             other.transform.position = _otherPortal.transform.position;
+            other.GetComponent<PlayerController>().destPos = _otherPortal.transform.position;
         }
     }
 

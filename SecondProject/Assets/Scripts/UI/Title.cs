@@ -54,7 +54,7 @@ public class Title : MonoBehaviour
 
         while (!operation.isDone)
         {
-            // operation.process를 이용해서 로딩화면 만들 예정
+            // operation.progress를 이용해서 로딩화면 만들 예정
             yield return null;
         }
         saveNLoad = FindObjectOfType<SaveNLoad>();
